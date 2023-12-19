@@ -1,0 +1,22 @@
+name: nginx
+
+services:
+  nginx:
+    ports:
+     - 3000-5010:3000-5010
+    restart: always
+    networks:
+     - nginx
+    image: nginx
+    configs:
+      - source: nginx
+        target: /etc/nginx/nginx.conf
+
+networks:
+  nginx:
+    name: nginx
+
+configs:
+  nginx:
+    name: nginx
+    file: "./nginx.conf"
